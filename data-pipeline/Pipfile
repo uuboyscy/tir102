@@ -9,6 +9,7 @@ requests = "*"
 pymysql = "*"
 pendulum = "*"
 cryptography = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 ipython = "*"
