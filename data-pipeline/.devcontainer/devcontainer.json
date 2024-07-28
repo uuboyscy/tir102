@@ -48,7 +48,7 @@
   "postCreateCommand": "sh ./.devcontainer/postCreateCommand.sh",
   "runArgs": [
     "--name",
-    "dev--demo-devcontainer",
+    "dev-demo-pandas",
     "--network",
     "host"
   ]
