@@ -57,7 +57,7 @@ if __name__ == "__main__":
     ).deploy(
         name="test-deploy",
         tags=["test", "project_1"],
-        work_pool_name="test-subproc",
+        work_pool_name="docker",
         job_variables=dict(pull_policy="Never"),
         # parameters=dict(name="Marvin"),
         cron="1 * * * *"
