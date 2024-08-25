@@ -17,7 +17,7 @@ chrome_options.add_argument("--allow-insecure-localhost")
 # chrome_options.add_argument("--headless")
 
 driver = webdriver.Remote(
-    command_executor="http://127.0.0.1:14444/wd/hub",
+    command_executor="https://selenium-demo-gzxryul6fq-de.a.run.app/wd/hub",
     options=chrome_options,
 )
 # driver = Chrome()
