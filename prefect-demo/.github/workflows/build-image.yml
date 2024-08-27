@@ -1,0 +1,31 @@
+name: Build image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [build/build-image-ci]
+
+env:
+  ECR_REPOSITORY: 351624853132.dkr.ecr.ap-southeast-1.amazonaws.com
+  ECR_IMAGE: prefect-runtime
+  ECR_IMAGE_TAG: latest
+
+jobs:
+  build-image:
+    runs-on:
+      group: Default
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: 'Docker build'
+      run: |
+        docker buildx build --platform linux/amd64 -t "${{ env.ECR_REPOSITORY }}/${{ env.ECR_IMAGE }}:${{ env.ECR_IMAGE_TAG }}" .
+
+    - name: 'Docker login'
+      run: |
+        echo "TBD"
+
+    - name: 'Docker push'
+      run: |
+        echo docker push "${{ env.ECR_REPOSITORY }}/${{ env.ECR_IMAGE }}:${{ env.ECR_IMAGE_TAG }}"

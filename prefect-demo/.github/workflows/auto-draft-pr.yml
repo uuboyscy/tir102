@@ -1,0 +1,29 @@
+name: Create draft pull-request
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'feat/**'
+      - 'refactor/**'
+      - 'bugfix/**'
+      - 'hotfix/**'
+      - 'docs/**'
+      - 'build/**'
+
+jobs:
+  create_draft_pr:
+    runs-on:
+      group: Default
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Draft PR
+        run: |
+          BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///g')
+          PR_EXISTS=$(gh pr list --base main --head $BRANCH_NAME | wc -l)
+          if [ "$PR_EXISTS" -eq "0" ]; then
+            gh pr create --base main --head ${{ github.ref }} --draft --title "Draft PR for ${{ github.ref }}" --body "Automatically created draft PR."
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
