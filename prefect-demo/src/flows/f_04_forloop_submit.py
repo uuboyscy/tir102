@@ -1,6 +1,6 @@
 """
 prefect deployment build \
-	src/flow/f_04_forloop_submit.py:f_04_forloop_submit \
+	src/flows/f_04_forloop_submit.py:f_04_forloop_submit \
 	-n docker \
 	-p test \
 	-q docker-deplymet \
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
     f_04_forloop_submit.from_source(
         source=GitHubRepository.load("github-prefect-demo"),
-        entrypoint="src/flow/f_04_forloop_submit.py:f_04_forloop_submit",
+        entrypoint="src/flows/f_04_forloop_submit.py:f_04_forloop_submit",
     ).deploy(
         name="test-deploy",
         tags=["test", "project_4"],

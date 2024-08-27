@@ -1,6 +1,6 @@
 """
 prefect deployment build \
-	src/flow/f_01_quick_start.py:f_01_quick_start \
+	src/flows/f_01_quick_start.py:f_01_quick_start \
 	-n docker \
 	-p test \
 	-q docker-deplymet \
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     f_01_quick_start.from_source(
         source=GitHubRepository.load("github-prefect-demo"),
-        entrypoint="src/flow/f_01_quick_start.py:f_01_quick_start",
+        entrypoint="src/flows/f_01_quick_start.py:f_01_quick_start",
     ).deploy(
         name="test-deploy",
         tags=["test", "project_1"],

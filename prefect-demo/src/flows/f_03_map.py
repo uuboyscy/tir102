@@ -1,6 +1,6 @@
 """
 prefect deployment build \
-	src/flow/f_03_map.py:f_03_map \
+	src/flows/f_03_map.py:f_03_map \
 	-n docker \
 	-p test \
 	-q docker-deplymet \
@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     f_03_map.from_source(
         source=GitHubRepository.load("github-prefect-demo"),
-        entrypoint="src/flow/f_03_map.py:f_03_map",
+        entrypoint="src/flows/f_03_map.py:f_03_map",
     ).deploy(
         name="test-deploy",
         tags=["test", "project_3"],

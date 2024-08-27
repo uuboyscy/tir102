@@ -1,6 +1,6 @@
 """
 prefect deployment build \
-	src/flow/f_02_async_task.py:f_02_async_task \
+	src/flows/f_02_async_task.py:f_02_async_task \
 	-n docker \
 	-p test \
 	-q docker-deplymet \
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # f_02_async_task()
     f_02_async_task.from_source(
         source=GitHubRepository.load("github-prefect-demo"),
-        entrypoint="src/flow/f_02_async_task.py:f_02_async_task",
+        entrypoint="src/flows/f_02_async_task.py:f_02_async_task",
     ).deploy(
         name="test-deploy",
         tags=["test", "project_2"],

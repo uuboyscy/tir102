@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     hello_world.from_source(
         source=GitHubRepository.load("github-prefect-demo"),
-        entrypoint="src/flow/test/hello_world_flow.py:hello_world",
+        entrypoint="src/flows/test/hello_world_flow.py:hello_world",
     ).deploy(
         name="test-deploy",
         tags=["test", "project_1"],
